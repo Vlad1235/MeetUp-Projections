@@ -10,9 +10,7 @@ public class ClassBasedProjectionOwner {
     private String firstName;
     private String lastName;
 
-    /**
-     * Имена параметров конструктора должны точно совпадать
-          */
+    //Имена параметров конструктора должны точно совпадать с названиями полей класса сущности
     public ClassBasedProjectionOwner(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;

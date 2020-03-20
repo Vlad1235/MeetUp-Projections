@@ -1,10 +1,12 @@
 package com.andersenlab.aadamovich.meetupprojection.projection.closed;
 
-import java.util.List;
-
 public interface ClosedProjectionOwner {
 
     String getFirstName();
 
-    List<ClosedProjectionCar> getCars();
+// Так работать не будет (getCar() вернет null)! Это не владеющая сторона в отношении @OneToOne
+    ClosedProjectionCar getCar();
+
+    // Так работает, но при этом использует механизм работы открытой проекции
+//    List<ClosedProjectionCar> getCar();
 }

@@ -9,8 +9,6 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@EqualsAndHashCode
 public class Car {
 
     @Id
@@ -21,7 +19,7 @@ public class Car {
     private String model;
     private String number;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "owner_id")
     @ToString.Exclude
     private Owner owner;

@@ -3,15 +3,12 @@ package com.andersenlab.aadamovich.meetupprojection.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class Owner {
 
     @Id
@@ -21,11 +18,11 @@ public class Owner {
     private String firstName;
     private String lastName;
 
-    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Car> cars;
+    @OneToOne(mappedBy = "owner", cascade = CascadeType.ALL)
+    private Car car;
 
     public void addCarToOwner(Car car) {
-        cars.add(car);
+        this.car = car;
         car.setOwner(this);
     }
    }
